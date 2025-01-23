@@ -1,4 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
-export class ProductsService {}
+export class ProductsService {
+  private products = [];
+
+  getTasks() {
+    return this.products;
+  }
+}
