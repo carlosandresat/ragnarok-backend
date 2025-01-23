@@ -23,7 +23,7 @@ export class ProductsService {
     },
   ];
 
-  getTasks() {
+  getProducts() {
     return this.products;
   }
 

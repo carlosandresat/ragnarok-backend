@@ -3,11 +3,11 @@ import { ProductsService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(private productsService: ProductsService) {}
 
   @Get()
-  getAllTasks() {
-    return this.productsService.getTasks();
+  getAllProducts() {
+    return this.productsService.getProducts();
   }
 
   @Get(':id')
