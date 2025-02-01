@@ -34,4 +34,8 @@ export class ProductsService {
     }
     return product;
   }
+
+  addProduct(product: any) {
+    this.products.push(product);
+  }
 }
