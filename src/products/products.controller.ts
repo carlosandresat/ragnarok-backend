@@ -18,6 +18,6 @@ export class ProductsController {
 
   @Post()
   addProduct(@Body() product: CreateProductDto) {
-    console.log(product); 
+    this.productsService.addProduct(product.name, product.description, product.basePrice);
   }
 }

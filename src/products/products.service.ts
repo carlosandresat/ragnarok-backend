@@ -1,7 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Products } from './products.entity';
 
 @Injectable()
 export class ProductsService {
+  constructor (
+    @InjectRepository(Products)
+    private productsRepository: Repository<Products>
+  ) {}
+
   private products = [
     {
       id: 1,
@@ -35,7 +43,9 @@ export class ProductsService {
     return product;
   }
 
-  addProduct(product: any) {
-    this.products.push(product);
+  addProduct(name: string, description: string, basePrice: number) {
+    const product = this.productsRepository.create({ name, description, basePrice });
+
+    return this.productsRepository.save(product);
   }
 }
