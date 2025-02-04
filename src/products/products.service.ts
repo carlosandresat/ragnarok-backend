@@ -32,7 +32,7 @@ export class ProductsService {
   ];
 
   getProducts() {
-    return this.products;
+    return this.productsRepository.find();
   }
 
   getProduct(id: number) {
